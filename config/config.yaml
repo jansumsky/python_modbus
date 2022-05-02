@@ -1,0 +1,237 @@
+config:
+  dump_dir: "dumps/"
+  report_dir: "reports/"
+  template_dir: "templates/"
+  report_template_file: "report_template.html"
+
+  db:
+    address: "10.241.79.174"
+    port: 3306
+    user: "test"
+    password: "testpasswd"
+    db_name: "modbus_test_rig"
+    base_table: "device_remote_control_test"
+    measurement_table: "device_measurement_test"
+
+init_sequence:
+  seq_1:
+    address_hex: "0x1f40"
+    address_dec: 8000
+    data: 10
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Sequence no.1"
+  seq_2:
+    address_hex: "0x1f41"
+    address_dec: 8001
+    data: 4353
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Sequence no.2"
+  seq_3:
+    address_hex: "0x1f42"
+    address_dec: 8002
+    data: 1
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Sequence no.3"
+
+login:
+  passwd_1:
+    address_hex: "0x1f43"
+    address_dec: 8003
+    data: 12336
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Password part 1"
+  passwd_2:
+    address_hex: "0x1f44"
+    address_dec: 8004
+    data: 12336
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Password part 2"
+
+remote_control_sequence:
+  t_off_c_break:
+    address_hex: "0x1f3f"
+    address_dec: 7999
+    data: 905
+    mode: "w"
+    pass_msg: 0
+    status: 0
+    comment: "Turn off the circuit breaker"
+  t_reset_c_break:
+    address_hex: "0x1f3f"
+    address_dec: 7999
+    data: 906
+    mode: "w"
+    pass_msg: 0
+    status: 0
+    comment: "Reset the circuit breaker"
+  t_on_c_break:
+    address_hex: "0x1f3f"
+    address_dec: 7999
+    data: 904
+    mode: "w"
+    pass_msg: 1
+    status: 0
+    comment: "Turn on the circuit breaker"
+
+device_id:
+  address_hex: "0x0e01"
+  address_dec: 3585
+  count: 1
+  mode: "r"
+  pass_msg: 1
+  reading: 0
+  comment: "Get device ID code"
+
+device_info:
+  get_dev_status:
+    address_hex: "0x0232"
+    address_dec: 562
+    count: 1
+    mode: "r"
+    pass_msg: 1
+    reading: 0
+    comment: "Device Status"
+  get_dev_motor_status:
+    address_hex: "0x0233"
+    address_dec: 563
+    count: 1
+    mode: "r"
+    pass_msg: 27
+    reading: 0
+    comment: "Device Motor Control Status"
+  get_unit_status:
+    address_hex: "0x270f"
+    address_dec: 9999
+    count: 1
+    mode: "r"
+    pass_msg: 1
+    reading: 0
+    comment: "Unit Status"
+
+test_readings_sequence:
+  voltage:
+    address_hex: "0x03e7"
+    address_dec: 1000
+    count: 8
+    mode: "r"
+    value_name: ["V12","V23","V31","V1N","V2N","V3N","VavgL-L","VavgL-N"]
+    reading: [0,0,0,0,0,0,0,0]
+    comment: "Get voltage readings"
+
+  voltage_unbalance:
+    address_hex: "0x03EF"
+    address_dec: 1007
+    count: 6
+    mode: "r"
+    value_name: ["Vu12","Vu23","Vu31","Vu1N","Vu2N","Vu3N"]
+    reading: [0,0,0,0,0,0]
+    comment: "Get voltage unbalance readings"
+
+  current:
+    address_hex: "0x03f7"
+    address_dec: 1015
+    count: 4
+    mode: "r"
+    value_name: ["I1","I2","I3","IN"]
+    reading: [0,0,0,0]
+    comment: "Get current readings"
+
+  current_unbalance:
+    address_hex: "0x0403"
+    address_dec: 1027
+    count: 4
+    mode: "r"
+    value_name: ["Iu1","Iu2","Iu3","IuN"]
+    reading: [0,0,0,0]
+    comment: "Get current unbalance readings"
+
+  power:
+    address_hex: "0x0409"
+    address_dec: 1033
+    count: 4
+    mode: "r"
+    value_name: ["P1","P2","P3","Ptot"]
+    reading: [0,0,0,0]
+    comment: "Get power readings"
+
+  reactive_power:
+    address_hex: "0x040d"
+    address_dec: 1037
+    count: 4
+    mode: "r"
+    value_name: ["Q1","Q2","Q3","Qtot"]
+    reading: [0,0,0,0]
+    comment: "Get reactive power readings"
+
+  apparent_power:
+    address_hex: "0x0411"
+    address_dec: 1041
+    count: 4
+    mode: "r"
+    value_name: ["S1","S2","S3","Stot"]
+    reading: [0,0,0,0]
+    comment: "Get apparent power readings"
+
+  efficiency:
+    address_hex: "0x0415"
+    address_dec: 1045
+    count: 4
+    mode: "r"
+    value_name: ["PF1","PF2","PF3","PF"]
+    reading: [0,0,0,0]
+    comment: "Get efficiency coefficient readings"
+
+  base_efficiency:
+    address_hex: "0x0419"
+    address_dec: 1049
+    count: 4
+    mode: "r"
+    value_name: ["cosF1","cosF2","cosF3","cosF"]
+    reading: [0,0,0,0]
+    comment: "Get base efficiency coefficient readings"
+
+  frequency:
+    address_hex: "0x041d"
+    address_dec: 1053
+    count: 1
+    mode: "r"
+    value_name: ["F"]
+    reading: [0]
+    comment: "Get frequency readings"
+
+  base_reactive_power:
+    address_hex: "0x0437"
+    address_dec: 1080
+    count: 4
+    mode: "r"
+    value_name: ["Q1f","Q2f","Q3f","Qtotf"]
+    reading: [0,0,0,0]
+    commnet: "Get base reactive power readings"
+
+  distortion:
+    address_hex: "0x043f"
+    address_dec: 1088
+    count: 4
+    mode: "r"
+    value_name: ["D1","D2","D3","Dtot"]
+    reading: [0,0,0,0]
+    comment: "Get distortion readings"
+
+  global_harm_dist:
+    address_hex: "0x0443"
+    address_dec: 1091
+    count: 9
+    mode: "r"
+    value_name: ["THDV12","THDV23","THDV31","THDV1N","THDV2N","THDV3N","THDI1","THDI2","THDI3"]
+    reading: [0,0,0,0,0,0,0,0,0]
+    comment: "Get global harmonic distortion readings"

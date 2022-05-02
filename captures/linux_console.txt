@@ -1,0 +1,21 @@
+/usr/bin/python3 /home/petrasovic/Documents/modbus/modbus_protocol.py --device_address 192.168.5.219 --device_address_split 192.168.5.219 --test_mode split --device_uid 255 --device_uid_split 255 --device_port 502 --device_port_split 502 --output pdf
+Connection successful! Starting tests:
+-> Running Device Control Test Sequence:
+   Sending OFF to motor control... Pass
+   Sending ON to motor control... Pass
+   Sending RESET to motor control... Pass
+   Done!
+Connection successful! Starting tests:
+-> Running Information Read Test:
+   Read Device Identification ... ['Schneider Electric', 'LV434011', '003.009.010']  Pass
+   Read Device Status ... 0  Pass
+   Read Device Motor Control Status ... 31  Pass
+   Read Unit Status ... 0  Pass
+   Done!
+-> Running Measurement Read test:
+   Measurement parameters -> Count: 10 Offset: 2s Total time: 20s
+   . . . . . . . . . . Pass
+   Done!
+-> Generated report saved! See: reports/7d38934cd6c4.html
+
+Process finished with exit code 0

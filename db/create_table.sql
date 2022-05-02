@@ -1,0 +1,35 @@
+CREATE TABLE `device_measurement_test` (
+	`measurement_id` VARCHAR(256),
+	`test_id` VARCHAR(100) NOT NULL,
+	`test_timestamp` DATE NOT NULL,
+	`probe_number` INT(16),
+	`voltage` VARCHAR(256),
+	`voltage_unbalance` VARCHAR(256),
+	`current` VARCHAR(256),
+	`current_unbalance` VARCHAR(256),
+	`power` VARCHAR(256),
+	`reactive_power` VARCHAR(256),
+	`apparent_power` VARCHAR(256),
+	`efficiency` VARCHAR(256),
+	`base_efficiency` VARCHAR(256),
+	`frequency` VARCHAR(256),
+	`base_reactive_force` VARCHAR(256),
+	`distortion` VARCHAR(256),
+	`global_harm_distortion` VARCHAR(256),
+	KEY `measurement_id` (`measurement_id`) USING BTREE,
+	PRIMARY KEY (`measurement_id`)
+);
+CREATE TABLE `device_remote_control_test` (
+    `test_id` VARCHAR(100) NOT NULL,
+    `test_timestamp` DATE NOT NULL,
+    `device_id` VARCHAR(100),
+    `device_status` INT(16),
+    `device_motor_status` INT(16),
+    `unit_status` INT(16),
+    `t_on_c_break` INT(16),
+    `t_off_c_break` INT(16),
+    `t_reset_c_break` INT(16),
+    `test_score` VARCHAR(100),
+    KEY `test_id` (`test_id`) USING BTREE,
+    PRIMARY KEY (`test_id`)
+    );
