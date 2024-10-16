@@ -1,4 +1,4 @@
-/usr/bin/python3 /home/petrasovic/Documents/modbus/modbus_protocol.py --device_address 192.168.5.219 --device_address_split 192.168.5.219 --test_mode split --device_uid 255 --device_uid_split 255 --device_port 502 --device_port_split 502 --output pdf
+/usr/bin/python3 /home/user22/Documents/modbus/modbus_protocol.py --device_address 192.168.5.219 --device_address_split 192.168.5.219 --test_mode split --device_uid 255 --device_uid_split 255 --device_port 502 --device_port_split 502 --output pdf
 Connection successful! Starting tests:
 -> Running Device Control Test Sequence:
    Sending OFF to motor control... Pass
